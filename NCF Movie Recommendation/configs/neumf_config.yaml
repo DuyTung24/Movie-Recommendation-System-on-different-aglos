@@ -1,0 +1,15 @@
+model: "NeuMF"
+num_factors: 8           # Cho nhánh GMF
+layers: [64, 32, 16, 8]  # Cho nhánh MLP
+lr: 0.0005               # Thường NeuMF dùng lr nhỏ hơn một chút khi pretrain
+batch_size: 4096
+epochs: 100
+num_negatives: 4
+patience: 10
+top_k: [5, 10, 20]
+use_pretrain: true       # Bật true để nạp trọng số từ GMF và MLP
+gmf_pretrain_path: "checkpoints/gmf_best.pth"
+mlp_pretrain_path: "checkpoints/mlp_best.pth"
+raw_data_path: "data/raw/ratings.dat"
+processed_dir: "data/processed/"
+checkpoint_path: "checkpoints/neumf_best.pth"
